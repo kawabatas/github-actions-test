@@ -1,6 +1,6 @@
 workflow "Echo" {
   on = "push"
-  resolves = ["Echo"]
+  resolves = ["BranchCheck", "Echo"]
 }
 
 action "BranchCheck" {
