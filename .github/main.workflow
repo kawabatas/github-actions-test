@@ -3,13 +3,16 @@ workflow "Echo" {
   resolves = ["Echo"]
 }
 
-action "Is develop branch" {
+action "BranchCheck" {
   uses = "actions/bin/filter@master"
   args = "branch develop"
 }
 
 action "Echo" {
   uses = "actions/bin/sh@master"
-  args = ["echo 'HELLO'"]
-  needs = ["Is develop branch"]
+  env = {
+    MESSAGE = "Hello World"
+  }
+  args = ["echo $MESSAGE"]
+  needs = ["BranchCheck"]
 }
