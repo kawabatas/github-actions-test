@@ -11,6 +11,7 @@ action "BranchCheck" {
 action "merged-filter" {
   uses = "actions/bin/filter@master"
   args = "merged true"
+  needs = ["BranchCheck"]
 }
 
 action "Echo" {
@@ -19,5 +20,5 @@ action "Echo" {
     MESSAGE = "Hello World"
   }
   args = ["echo $MESSAGE"]
-  needs = ["BranchCheck", "merged-filter"]
+  needs = ["merged-filter"]
 }
