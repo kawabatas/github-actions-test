@@ -11,4 +11,5 @@ action "Is develop branch" {
 action "Echo" {
   uses = "actions/bin/sh@master"
   args = ["echo 'HELLO'"]
+  needs = ["Is develop branch"]
 }
