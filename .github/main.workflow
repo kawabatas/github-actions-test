@@ -19,6 +19,6 @@ action "Echo" {
   env = {
     MESSAGE = "Hello World"
   }
-  args = ["echo $MESSAGE"]
-  needs = ["merged-filter"]
+  args = ["echo === $MESSAGE. SHA:$GITHUB_SHA, REF:$GITHUB_REF"]
+  needs = ["BranchCheck"]
 }
